@@ -1,5 +1,6 @@
 ---
-layout: exercise_python
+layout: exercise
+language: "python"
 permalink: "SpanningTrees/Exercise1"
 title: "CS 271: Exercise on Constructing Spanning Trees"
 excerpt: "CS 271: Exercise on Constructing Spanning Trees"
@@ -30,7 +31,7 @@ processor:
         pos.includes("(3, 1), (7, 3), (6, 2), (3, 2), (7, 1), (7, 4), (1, 0), (6, 4), (7, 6), (2, 0), (4, 1), (5, 1), (5, 3), (6, 5), (6, 0), (5, 4), (2, 1), (3, 0), (7, 2), (5, 2), (4, 0), (7, 0), (4, 2), (6, 1), (4, 3), (6, 3), (5, 0), (7, 5)")
       feedback: "Try again.  It looks like you're adding every single edge still. Be sure to union nodes after adding edges"
 files:
-  - filename: "Union Find"
+  - filename: "unionfind.py"
     name: unionfind
     ismain: false
     isreadonly: true
@@ -116,7 +117,7 @@ files:
                           self._rank[root_i] += self._rank[root_j]
 
 
-  - filename: "Spanning Tree Code"
+  - filename: "student.py"
     name: tree
     ismain: false
     isreadonly: false
@@ -153,7 +154,7 @@ files:
 
 
 
-  - filename: "Test Code Block"
+  - filename: "main.py"
     ismain: true
     name: main
     isreadonly: true
@@ -163,4 +164,5 @@ files:
         tree_edges = get_spanning_tree(8, edges)
         print(tree_edges)
 
+openFilesOnLoad: ["main.py", "student.py"]
 ---
