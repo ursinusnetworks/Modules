@@ -13,7 +13,7 @@ info:
   prev: "./Video2"
   next: "./Video3"
   points: 2
-  instructions: "Fill in the method <code>get_reachable_2_hops</code> to compute the set of vertices that are reachable from a particular vertex within 1 or 2 hops."
+  instructions: "Fill in the method <code>get_reachable_2_hops</code> to compute the set of nodes that are reachable from a particular node within 1 or 2 hops.  The picture below shows an example of all of the node that are within 1 and two hops of a particular node:<p></p><img src = \"../images/Graphs/TwoHops.svg\" width=\"30%\">"
   goals:
     - Manipulate neighbor data structure and sets in graphs
     
