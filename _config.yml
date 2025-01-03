@@ -7,10 +7,10 @@ relative_links:
 
 theme: jekyll-theme-slate
 
-title: "CS271"
-description: "Data Structures And Algorithms"
+title: "CS475"
+description: "Computer Networks"
 
-url                      : https://ursinusdatastructures.github.io 
+url                      : https://ursinusnetworks.github.io 
 baseurl                  : "/Modules" 
     
 formlink: https://docs.google.com/forms/d/e/1FAIpQLSfPT74-Mt3Xn2mo8FUOJ42HuiTl5ojrrGp9SVn8fzCi1NQ2dQ/formResponse?submit=Submit&usp=pp_url&entry.1751208828=magic&entry.798253037=
