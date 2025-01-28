@@ -277,9 +277,12 @@ For example, Professor Tralie's ID is ctralie.
 
 If you are not an Ursinus student, that's fine!
 Just make something up, and you can still run everything</div>
+<p id="getCredit"></p>
                     <div class="wrap-text-container">
+                        
                         <label for="wrap-text">Wrap Text</label>
                         <input type="checkbox" id="wrap-text" checked>
+                        
                     </div>
                     <button id="clear-console">Clear Console</button>
                     <div class="output-container" id="output-container"> 
@@ -370,6 +373,7 @@ def pyodide_print(s):
             </script>
             <script>
                 {% if page.language == "pyodide" %}
+                var pyodide = null;
                 var imgStr = "";
                 var audioStr = "";
                 {% endif %}
@@ -1594,7 +1598,7 @@ def pyodide_print(s):
                             packages = "{{page.info.packages}}".split(",");
                         }
                         {% endif %}
-                        let pyodide = null;
+                        pyodide = null;
                         let pyodideLoaded = false;
 
                         async function setupPyodide() {
@@ -1891,6 +1895,9 @@ def pyodide_print(s):
                             if (!pyodideLoaded) {
                                 await pyodidePromise;
                             }
+                            // Setup pyodide stuff that should run before student code (global variables, etc)
+                            {{ page.processor.pyodidesetup | strip }}
+
                             let student_code = editorText + "\n\n" + document.getElementById("pyodideBoilerplate").innerHTML + "\n\n" + mainText;
                             console.log(student_code);
                             pyodide.runPython(student_code);
@@ -2002,7 +2009,15 @@ def pyodide_print(s):
 
                         let url = `{% if layout.formlink %}{{ layout.formlink }}{% else %}{{ site.formlink }}{% endif %}` + encryptedContent;
                         console.log("len(url)", url.length);
-                        window.location.href = url; // window.open(url);                     
+                        let getCredit = document.getElementById("getCredit");
+                        if (halfcredit) {
+                            getCredit.innerHTML = "<b>Sorry you've been having trouble with this!  To reward you for your efforts so far, <a href = \"" + url + "\" target = \"_blank\">Click here</a> to get half credit on canvas</b>";
+                        }
+                        else {
+                            getCredit.innerHTML = "<b>Congratulations!  <a href = \"" + url + "\" target = \"_blank\">Click here</a> to get full credit on canvas";
+                            console.log("getCredit.innerHTML</b>", getCredit.innerHTML);
+                        }
+                        //window.location.href = url; // window.open(url);                     
                         
                         // download encrypted submission version, if desired
                         if(downloadblob) {
