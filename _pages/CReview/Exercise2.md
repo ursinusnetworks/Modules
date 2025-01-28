@@ -35,7 +35,11 @@ files:
         #include <stdlib.h>
 
         /**
-        @param num: Number of elements in the array
+        @param verStr: The version string
+        @param major: A pointer to the int that should hold the major version
+                      when this method is done
+        @param minor: A pointer to the int that should hold the minor version
+                      when this method is done
         */
         void extractVersion(const char* verStr, int* major, int* minor) {
             // TODO: Fill this in
