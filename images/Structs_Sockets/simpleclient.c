@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     inet_pton(AF_INET, "127.0.0.1", &addrInfo.sin_addr.s_addr);
     int ret = connect(sockfd, (struct sockaddr*)&addrInfo, sizeof(addrInfo));
     if (ret == -1) {
-        fprintf(stderr, "Error number %i opening socket\n", errno);
+        fprintf(stderr, "Error number %i connecting to socket\n", errno);
         exit(errno);
     }
     // Step 3: Send message
