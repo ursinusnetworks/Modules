@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
     int ret = getaddrinfo("www.google.com", "80", &hints, &node);
     if (ret != 0) {
         fprintf(stderr, "Error number %i getting address info\n", ret);
+        freeaddrinfo(node);
         exit(ret);
     }
     int sockfd = -1;
@@ -53,10 +54,12 @@ int main(int argc, char** argv) {
     printf("sockfd = %i\n", sockfd);
     if (sockfd == -1) {
         fprintf(stderr, "Error number %i opening socket\n", errno);
+        freeaddrinfo(node);
         exit(errno);
     }
     // Step 2: Setup stream on socket and connect
     ret = connect(sockfd, node->ai_addr, node->ai_addrlen);
+    freeaddrinfo(node);
     if (ret == -1) {
         fprintf(stderr, "Error number %i connecting to socket\n", errno);
         exit(errno);
