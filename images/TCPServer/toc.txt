@@ -1,0 +1,27 @@
+00:40 Modifications to getaddrinfo() for server
+
+04:30 bind() and listen()
+
+08:06 accept() incoming connections and create new full duplex sockets
+
+13:00 Printing IP address of newly connected clients
+
+16:00 recv() on new socket
+
+18:36 Setting up pthreads for multithreaded socket connections
+
+22:36 Passing along multiple parameters to thread servicing methods
+
+26:15 Receiving data in threads
+
+29:30 Sending binary headers from client to server
+
+35:20 Being careful about endianness before sending binary data
+
+38:47 Receiving binary header and body on the server
+
+44:10 Locking shared variables between threads with mutexes
+
+49:53 Be very careful to unlock the locks when you're finished!
+
+51:30 Examining 3 way handshake and traffic in wireshark
