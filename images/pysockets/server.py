@@ -3,7 +3,7 @@ import struct # Used for binary data
 import threading # For multithreaded
 
 ## Step 1: Bind server to my address and listen
-PORT = 60001
+PORT = 60000
 BACKLOG = 10
 sock = None
 for res in socket.getaddrinfo(None, PORT, socket.AF_UNSPEC, socket.SOCK_STREAM, flags=socket.AI_PASSIVE):
